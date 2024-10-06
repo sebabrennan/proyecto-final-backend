@@ -2,7 +2,6 @@ import { Router } from 'express';
 import ProductController from "../controllers/product.controller.js";
 import { checkAdmin } from "../middlewares/checkAdmin.js";
 import { checkAuth } from "../middlewares/authJwt.js";
-import { checkPremium } from '../middlewares/checkPremium.js';
 import { checkAdminOrPremium } from '../middlewares/checkAdminOrPremium.js';
 
 const controller = new ProductController();

@@ -75,11 +75,39 @@ export default class UserService extends Services {
     } catch (error) {
       throw new Error(error);
     }
+  };
+
+  getUserByEmail = async (email) => {
+    try {
+      const userExist = await this.dao.getByEmail(email);
+      if (!userExist) return null;
+      return userExist
+    } catch (error) {
+      throw new Error(error)
+    }
   }
 
   getUserById = async (id) => {
     try {
       return await userRepository.getUserById(id);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  async deleteUserById(id){
+    try {
+      const verifierId = await this.dao.getById(id);
+      if(!verifierId) return null;
+      else return await this.dao.delete(id);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  getAllUsers = async () => {
+    try {
+      return await userRepository.getAllUsers();
     } catch (error) {
       throw new Error(error);
     }
@@ -146,4 +174,4 @@ export default class UserService extends Services {
       throw new Error(error)
     }
   }
-}
+};

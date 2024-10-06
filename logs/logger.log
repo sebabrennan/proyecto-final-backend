@@ -1,0 +1,19 @@
+[10-01-2024 18:51:43 PM] [31merror[39m: 	Token vencido
+[10-01-2024 19:30:17 PM] [31merror[39m: 	Token vencido
+[10-01-2024 19:32:06 PM] [31merror[39m: 	Token vencido
+[10-01-2024 19:32:59 PM] [31merror[39m: 	Token vencido
+[10-01-2024 19:38:10 PM] [31merror[39m: 	Token vencido
+[10-01-2024 19:39:34 PM] [1m[31mfatal[39m[22m: 	Error: CastError: Cast to ObjectId failed for value "66e8a85b004a6aa484414b9" (type string) at path "_id" for model "users"
+[10-02-2024 19:07:19 PM] [1m[31mfatal[39m[22m: 	Cannot read properties of undefined (reading 'getById')
+[10-02-2024 19:09:56 PM] [1m[31mfatal[39m[22m: 	Cannot read properties of undefined (reading 'delete')
+[10-02-2024 19:25:18 PM] [31merror[39m: 	Token vencido
+[10-02-2024 19:34:00 PM] [31merror[39m: 	No tienes permisos para realizar esta acción
+[10-02-2024 19:34:28 PM] [1m[31mfatal[39m[22m: 	Error: No recipients defined
+[10-05-2024 10:34:23 AM] [1m[31mfatal[39m[22m: 	Error: No recipients defined
+[10-06-2024 10:26:29 AM] [1m[31mfatal[39m[22m: 	Cannot read properties of null (reading 'role')
+[10-06-2024 10:28:36 AM] [1m[31mfatal[39m[22m: 	Cannot read properties of null (reading 'role')
+[10-06-2024 10:30:02 AM] [1m[31mfatal[39m[22m: 	Cannot read properties of null (reading 'role')
+[10-06-2024 10:45:23 AM] [31merror[39m: 	Token vencido
+[10-06-2024 10:48:12 AM] [31merror[39m: 	No tienes permisos para realizar esta acción
+[10-06-2024 10:55:29 AM] [31merror[39m: 	Token vencido
+[10-06-2024 11:22:07 AM] [31merror[39m: 	No tienes permisos para realizar esta acción

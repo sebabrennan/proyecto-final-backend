@@ -36,16 +36,18 @@ export default class ProductController extends Controllers {
     deleteProduct = async(req, res, next) => {
       try {
         const { id } = req.params;
-        const product = await this.service.getById(id);
-        const { owner } = product;
-        const { email, role } = req.user;
+        const user = req.user;
+        const response = await prodService.deleteProductById(id, user); 
         
-        if (role === "admin" || owner === email) {
-          const data = await this.service.delete(id);
-          !data ? httpResponse.NotFound(res, data) : httpResponse.Ok(res, data);
-        } else {
-          httpResponse.Forbidden(res, { message: "No tienes permisos para realizar esta acción" });
+        if (!response || response === "ID inexistente") {
+          return httpResponse.NotFound(res, response);
         }
+        
+        if (response === "No tienes permisos para realizar esta acción") {
+          return httpResponse.Forbidden(res, response);
+        }
+        
+        return httpResponse.Ok(res, response);
         
       } catch (error) {
         next(error);

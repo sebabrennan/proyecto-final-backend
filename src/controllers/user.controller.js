@@ -93,4 +93,23 @@ export default class UserController extends Controllers{
       next(error);
     }
   };
+
+  getAllUsers = async (req, res, next) => {
+    try {
+      const response = await this.service.getAllUsers();
+      !response ? httpResponse.NotFound(res, response) : httpResponse.Ok(res, response);
+    } catch (error) {
+      next(error);
+    }
+  };
+  
+  deleteUserById = async (req, res, next) => {
+    try {
+      const { id } = req.params
+      const response = await this.service.deleteUserById(id);
+      !response ? httpResponse.NotFound(res, "Usuario no encontrado") : httpResponse.Ok(res, response);
+    } catch (error) {
+      next(error);
+    }
+  }
 };

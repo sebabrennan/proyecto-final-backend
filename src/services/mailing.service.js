@@ -22,10 +22,13 @@ const createMsgReset = (first_name) => {
 
 const createMsgUpdateActive = (first_name) => `<h1>Hola ${first_name}, hemos notado tu ausencia y queremos que regreses a nuestra plataforma! Inicia sesión y obtiene un beneficio por volver!`
 
+const createMsgDeleteProduct = (first_name) => `<p>¡Hola ${first_name}!</p></br><p>Un tuyo producto ha sido eliminado</p>`
+const createMsgUpdateProduct = (first_name) => `<p>¡Hola ${first_name}!</p></br><p>Un tuyo producto ha sido modificado</p>`
+
 /**
  * 
  * @param {*} user 
- * @param {*} service register | resetPass | updateActive
+ * @param {*} service register | resetPass | updateActive | deleteProduct | updateProduct
  * @param {*} token 
  * @returns 
  */
@@ -41,6 +44,10 @@ export const sendMail = async (user, service, token = null) => {
       ? (msg = createMsgReset(first_name))
       : service === "updateActive"
       ? (msg = createMsgUpdateActive(first_name))
+      : service === "deleteProduct"
+      ? (msg = createMsgDeleteProduct(first_name))
+      : service === "updateProduct"
+      ? (msg = createMsgUpdateProduct(first_name))
       : (msg = "");
 
     let subj = "";
@@ -50,8 +57,10 @@ export const sendMail = async (user, service, token = null) => {
         ? "Bienvenido/a"
         : service === "resetPass"
         ? "Restablecimiento de contraseña"
-        :service === "updateActive"
+        : service === "updateActive"
         ? "¡Volvé a nuestra plataforma y obtené este beneficio!"
+        : service === "deleteProduct" || service === "updateProduct"
+        ? "Aviso de movimientos en tus productos"
         : "";
 
     const gmailOptions = {
@@ -61,8 +70,8 @@ export const sendMail = async (user, service, token = null) => {
       html: msg,
     };
 
-    const response = await transporter.sendMail(gmailOptions);
-    if (token) return token;
+    await transporter.sendMail(gmailOptions);
+    if (token) return token
   } catch (error) {
     throw new Error(error);
   }
